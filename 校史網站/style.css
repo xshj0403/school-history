@@ -160,11 +160,9 @@ img.meta {
     left: 0;
     min-width: 100%;
     min-height: 100%;
-    object-fit: cover;
     /* 保持比例填滿畫面 */
+    object-fit: cover;
     z-index: -10;
-    /* 放到背景層 */
-    filter: brightness(0.5);
     transition: filter 0.5s ease;
 }
 #mask{
@@ -178,7 +176,7 @@ img.meta {
     opacity: 0.3;
     mix-blend-mode: screen;
     background: linear-gradient(135deg, #00ffff, #ff00ff);
-    transition: filter 0.3s ease;
+    transition: filter 0.3s ease, background 0.5s ease;
 }
 
 /* 文字內容 sec1 */
