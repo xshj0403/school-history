@@ -40,7 +40,7 @@ $(window).on('scroll', function () {
     $('.bg-video').css('filter', 'brightness(0.5)');
   }
 
-  if (value + windowHeight >= documentHeight - 100) {
+  if (value + windowHeight >= documentHeight - 200) {
     // 到底部時變成黑色遮罩
     $('#mask').css({
       'filter': 'brightness(0.1)',
