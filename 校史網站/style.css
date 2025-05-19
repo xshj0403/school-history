@@ -1,0 +1,582 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('./font/behance-65a9ae29a5cd4.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transition: all .5s ease;
+}
+
+:root {
+    --first_color: #f4dd2f;
+    --second_color: #00d9ff;
+    --white: #fff;
+}
+
+.chinese {
+    font-family: "Noto Sans JP", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.english {
+    font-family: 'MyCustomFont', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+/* 初始化^ */
+body {
+    background-color: #000;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+.nbbc {
+    background-color: rgb(0, 0, 0, .3);
+    backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+    color: var(--first_color);
+    font-size: 15px;
+    margin-left: 20px;
+}
+
+.navbar-brand:hover {
+    color: --;
+}
+
+.nav-link {
+    position: relative;
+    margin-left: 50px;
+    padding: 20px;
+    color: var(--white);
+    font-size: 20px;
+}
+
+.nav-link:focus,
+.navbar-brand:focus {
+    color: var(--second_color) !important;
+    /* 你想要的顏色，例如亮藍色 */
+}
+
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--second_color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link:hover,.navbar-brand:hover {
+    color: var(--second_color);
+}
+
+/* 排版內容 */
+.parallax::-webkit-scrollbar {
+    display: none;
+}
+
+.parallax {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    /* background: url("bc.png") no-repeat; */
+    background-size: cover;
+    background-attachment: fixed;
+    text-align: center;
+}
+
+h1.title {
+    font-size: 7em;
+    font-weight: 900;
+    letter-spacing: 1rem;
+    color: var(--first_color);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-shadow: 0 0 10px var(--first_color),
+        0 0 30px rgb(244, 221, 36, 0.5);
+    z-index: 100;
+}
+
+h1.title small {
+    font-size: 0.5em;
+    font-weight: 700;
+    margin-top: 1em;
+}
+
+img.meta {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+.parallax img#gate-left {
+    position: fixed;
+    /* transform: translateX(-282px); */
+    z-index: -1;
+}
+
+.parallax img#tree-right,
+.parallax #tree-right {
+    z-index: -1;
+}
+
+.parallax img#gate-right {
+    position: fixed;
+    /* transform: translateX(290px); */
+}
+
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    /* 保持比例填滿畫面 */
+    z-index: -10;
+    /* 放到背景層 */
+    filter: brightness(0.5);
+    transition: filter 0.5s ease;
+}
+#mask{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.3;
+    mix-blend-mode: screen;
+    background: linear-gradient(135deg, #00ffff, #ff00ff);
+    transition: filter 0.3s ease;
+}
+
+/* 文字內容 sec1 */
+
+.sec {
+    position: relative;
+    background: url(img/bc3.png) no-repeat center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 850px;
+}
+
+.main-content {
+    padding: 0 80px;
+    max-width: 1200px;
+}
+
+.sec h1 {
+    font-size: 3.8em;
+    color: var(--second_color);
+    margin-bottom: 35px;
+    font-weight: 500;
+    text-shadow: 1px 1px 5px var(--second_color);
+    letter-spacing: 10px;
+}
+
+.sec h1 span {
+    color: var(--first_color);
+    text-shadow: 1px 1px 5px var(--first_color);
+}
+
+.sec p {
+    font-size: 1.5em;
+    color: var(--white);
+    text-align: justify;
+    text-shadow: 1px 1px 5px var(--second_color);
+    letter-spacing: 5px;
+    line-height: 1.8;
+}
+
+/* sec2 */
+.sec-card {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: visible;
+}
+
+.mycard {
+    margin: 20px 15px;
+    max-width: 300px;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    /* border-radius: 10px; */
+    padding: 0 !important;
+    /* 第一種 */
+    /* border: 2px solid var(--second_color);
+    background: linear-gradient(135deg, #000 60%, #0ff 100%);
+    box-shadow: 0 0 15px var(--second_color), 0 0 5px var(--first_color); */
+    /* animation: borderGlow 2s linear infinite; */
+
+    /* 第二種->利用span做動畫 */
+}
+
+.mycard .animation {
+    position: absolute;
+    display: block;
+    z-index: 10;
+    box-shadow: 0 0 5px var(--second_color),
+        0 0 25px var(--second_color),
+        0 0 50px var(--second_color),
+        0 0 200px var(--second_color);
+}
+
+.mycard .animation:nth-child(1) {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, transparent, var(--second_color));
+    animation: top 2s linear infinite;
+}
+
+@keyframes top {
+    0% {
+        left: -100%;
+    }
+
+    50%,
+    100% {
+        left: 100%;
+    }
+}
+
+.mycard .animation:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, var(--second_color));
+    animation: right 2s linear infinite;
+    animation-delay: 0.5s;
+}
+
+@keyframes right {
+    0% {
+        top: -100%;
+    }
+
+    50%,
+    100% {
+        top: 100%;
+    }
+}
+
+.mycard .animation:nth-child(3) {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(270deg, transparent, var(--second_color));
+    animation: bottom 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes bottom {
+    0% {
+        right: -100%;
+    }
+
+    50%,
+    100% {
+        right: 100%;
+    }
+}
+
+.mycard .animation:nth-child(4) {
+    bottom: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(0deg, transparent, var(--second_color));
+    animation: left 2s linear infinite;
+    animation-delay: 1.5s;
+}
+
+@keyframes left {
+    0% {
+        bottom: -100%;
+    }
+
+    50%,
+    100% {
+        bottom: 100%;
+    }
+}
+
+/* 邊框動畫 */
+@keyframes borderGlow {
+    0% {
+        border-color: var(--second_color);
+        box-shadow: 0 0 10px var(--second_color), 0 0 10px var(--first_color);
+    }
+
+    50% {
+        border-color: var(--first_color);
+        box-shadow: 0 0 15px var(--first_color), 0 0 5px var(--second_color);
+    }
+
+    100% {
+        border-color: var(--second_color);
+        box-shadow: 0 0 10px var(--second_color), 0 0 10px var(--first_color);
+    }
+}
+
+.mycard img {
+    height: 300px;
+    filter: brightness(0.5);
+    /* border-radius: 10px; */
+    position: relative;
+    /* border: 2px solid var(--second_color);
+    animation: flicker 4s infinite alternate;
+    box-shadow: 0 0 20px var(--second_color); */
+}
+
+/* 圖片閃爍動畫 */
+@keyframes flicker {
+    0% {
+        opacity: 1;
+        box-shadow: 0 0 5px var(--second_color);
+    }
+
+    50% {
+        opacity: 0.8;
+        box-shadow: 0 0 20px var(--second_color);
+    }
+
+    100% {
+        opacity: 1;
+        box-shadow: 0 0 10px var(--second_color);
+    }
+}
+
+
+.mycard h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 1.5em;
+    letter-spacing: 5px;
+    color: var(--first_color);
+    text-shadow: 0 0 5px var(--first_color),
+        0 0 10px var(--first_color);
+    /* animation: flicker 1.5s infinite alternate;  */
+}
+
+/* 文字閃爍 */
+@keyframes flicker {
+
+    0%,
+    19%,
+    21%,
+    23%,
+    25%,
+    54%,
+    56%,
+    100% {
+        opacity: 1;
+        text-shadow: 0 0 5px var(--second_color), 0 0 10px var(--first_color);
+    }
+
+    20%,
+    24%,
+    55% {
+        opacity: 0.5;
+        text-shadow: 0 0 2px var(--second_color), 0 0 4px var(--first_color);
+    }
+}
+
+.mycard .text {
+    height: 100px;
+    padding: 12px;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: -80px;
+    /* background-color: rgb(255, 255, 255,.8); */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    /* pointer-events: none; */
+}
+
+.mycard .text p {
+    font-size: 14px;
+    color: var(--white);
+    text-shadow: 0 0 5px var(--second_color);
+    line-height: 1.8;
+    letter-spacing: 1px;
+    padding: 5px 5px 0;
+    text-align: justify;
+}
+
+.mycard:hover h2 {
+    top: 35%;
+}
+
+.mycard:hover .text {
+    bottom: 50px;
+    height: 100px;
+}
+
+/* 按鈕 */
+.mybtn {
+    position: absolute;
+    right: 30px;
+    bottom: -20px;
+    padding: 10px 20px;
+    border: 2px solid var(--second_color);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    overflow: hidden;
+    color: var(--first_color);
+}
+
+.mybtn:hover {
+    box-shadow: 0 0 5px var(--first_color),
+        0 0 25px var(--first_color),
+        0 0 50px var(--first_color),
+        0 0 200px var(--first_color), ;
+
+}
+
+.mybtn span {
+    color: var(--first_color);
+    mix-blend-mode: difference;
+}
+
+a.mybtn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 40px;
+    background-color: var(--first_color);
+    transition: .5s;
+    transform: skewX(-15deg);
+    animation: run 2s linear infinite;
+}
+
+a.mybtn:hover::before {
+    width: 100%;
+    transform: skewX(0deg);
+    animation: none;
+}
+
+@keyframes run {
+    0% {
+        left: -40px;
+    }
+
+    100% {
+        left: calc(100% + 10px);
+    }
+}
+
+/* RWD */
+@media screen and (max-width: 1200px) {
+    .sec {
+        background: none;
+    }
+}
+
+@media screen and (max-width: 992px) {
+
+    .nav-link {
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    .parallax {
+        height: 50vh;
+        overflow-x: hidden;
+    }
+
+    .parallax h1 {
+        font-size: 2.5em;
+        z-index: 10;
+        letter-spacing: 0.2em;
+    }
+
+    .parallax img#tree-left,
+    .parallax img#tree-right {
+        top: 0;
+    }
+
+    .parallax img#gate-left {
+        position: absolute;
+        transform: translateX(-50px);
+        bottom: 0;
+    }
+
+    .parallax img#gate-right {
+        position: absolute;
+        transform: translateX(50px);
+        bottom: 0;
+    }
+
+    .parallax img#grass {
+        bottom: 0;
+    }
+
+    .sec {
+        padding: 20px;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+    .sec h1 {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .sec p {
+        font-size: 16px;
+    }
+
+    .sec-card {
+        display: block;
+    }
+}
